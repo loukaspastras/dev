@@ -1,0 +1,16 @@
+{
+  "name": "dev",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "node index.js"
+  },
+  "author": "loukaspastras",
+  "license": "ISC",
+  "description": "learning how to build API's",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
