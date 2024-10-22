@@ -1,8 +1,8 @@
 // @ts-nocheck
 import express from 'express';
 import mongoose from 'mongoose';
-import {Product} from './models/product.model.js'
 import dotenv from 'dotenv';
+import router from './routes.js'
 
 dotenv.config();
 
@@ -14,7 +14,11 @@ app.listen(3000, () => {
     console.log('Server is running on port 3000');
 });
 
-app.get('/', (req, res) => {
+
+app.use('/api', router);
+
+
+/* app.get('/', (req, res) => {
     res.send('Hello from node API');
 });
 
@@ -62,6 +66,7 @@ app.delete('/api/product/:id', async (req, res) =>
 {
     try{
         const { id } = req.params;
+
         const product = Product.findByIdAndDelete(id);
         
         if (!product){
@@ -72,7 +77,10 @@ app.delete('/api/product/:id', async (req, res) =>
     } catch (error){
         res.status(500).json({message: error.message});
     }
-});
+}); */
+
+
+// eslint-disable-next-line no-undef
 mongoose.connect(process.env.MONGO_URI)
-.then(() => console.log('Connected!'))
-.catch(() => console.log('Connection Failed')); 
+    .then(() => console.log('Connected!'))
+    .catch(() => console.log('Connection Failed')); 
